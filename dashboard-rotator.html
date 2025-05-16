@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Rotator</title>
+  <style>
+    html, body, iframe {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border: none;
+      overflow: hidden;
+    }
+    iframe {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="dashboardFrame" src="" frameborder="0"></iframe>
+
+  <script>
+    const urls = [
+      "https://tableau2023.areteonline.net/t/arepro/views/SemiOleosi/TVDashSemiOleosi?:embed=yes&:tabs=no#1",
+      "https://tableau2023.areteonline.net/t/arepro/views/OliVegetali/TVDashOliVegetali?:embed=yes&:tabs=no#1",
+      "https://tableau2023.areteonline.net/t/arepro/views/Legumi/TVDashLegumi?:embed=yes&:tabs=no#1",
+      "https://tableau.areteonline.net/t/arepro/views/LatteeDerivatiUova_16940175489560/TVDashLatteeDerivatiUova?:embed=yes&:tabs=no#1",
+      "https://tableau2023.areteonline.net/t/arepro/views/Cereali/TVDashCereali?:embed=yes&:tabs=no#1"
+    ];
+
+    let index = 0;
+    const frame = document.getElementById('dashboardFrame');
+
+    function showNextDashboard() {
+      frame.src = urls[index];
+      index = (index + 1) % urls.length;
+    }
+
+    showNextDashboard();
+    setInterval(showNextDashboard, 20000); // cambia ogni 20 secondi
+  </script>
+</body>
+</html>
