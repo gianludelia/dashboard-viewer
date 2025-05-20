@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard Rotator</title>
+  <meta charset="UTF-8" />
+  <title>Dashboard Rotator Fullscreen</title>
   <style>
     html, body, iframe {
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 100%;
+      width: 100vw;
+      height: 100vh;
       border: none;
       overflow: hidden;
     }
     iframe {
       display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <iframe id="dashboardFrame" src="" frameborder="0"></iframe>
+  <iframe id="dashboardFrame" src="" frameborder="0" allowfullscreen></iframe>
 
   <script>
     const urls = [
@@ -37,8 +40,11 @@
       index = (index + 1) % urls.length;
     }
 
+    // Mostra subito la prima dashboard
     showNextDashboard();
-    setInterval(showNextDashboard, 20000); // cambia ogni 20 secondi
+
+    // Cambia dashboard ogni 20 secondi
+    setInterval(showNextDashboard, 20000);
   </script>
 </body>
 </html>
